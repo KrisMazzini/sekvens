@@ -91,6 +91,15 @@ export const {
       32: '8rem',
       40: '10rem',
     },
+
+    radii: {
+      px: '1px',
+      sm: '2px',
+      md: '4px',
+      lg: '6px',
+      xl: '8px',
+      full: '9999px',
+    },
   },
 
   media: {

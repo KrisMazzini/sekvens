@@ -2,6 +2,7 @@ import Head from 'next/head'
 
 import { Header } from '@/components/Header'
 import { NewPlayer } from '@/components/NewPlayer'
+import { Footer } from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
         <NewPlayer index={0} amountOfPlayers={3} />
         <NewPlayer index={1} amountOfPlayers={3} />
         <NewPlayer index={2} amountOfPlayers={3} />
+
+        <Footer />
       </main>
     </>
   )

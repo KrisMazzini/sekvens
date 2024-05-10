@@ -12,7 +12,7 @@ type ButtonProps = ComponentProps<typeof Container> & {
 export function Button({ title, icon: Icon, ...props }: ButtonProps) {
   return (
     <Container {...props}>
-      {Icon && <Icon size={20} />}
+      {Icon && <Icon data-testid="icon" size={20} />}
 
       {title}
     </Container>

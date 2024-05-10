@@ -7,9 +7,13 @@ type HeaderProps = {
 export function Header({ simple = false }: HeaderProps) {
   return (
     <Container>
-      <Title simple={simple}>Sekven</Title>
+      <Title data-testid="title" simple={simple}>
+        Sekven
+      </Title>
 
-      {!simple && <Subtitle>Um super jogo de sequência!</Subtitle>}
+      {!simple && (
+        <Subtitle data-testid="subtitle">Um super jogo de sequência!</Subtitle>
+      )}
     </Container>
   )
 }

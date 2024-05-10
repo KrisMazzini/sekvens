@@ -22,14 +22,22 @@ export function Input({ label, error, ...props }: InputProps) {
           <StyledInput {...props} />
 
           {error ? (
-            <XCircle size={24} color={String(colors.red100)} />
+            <XCircle
+              data-testid="x-circle"
+              size={24}
+              color={String(colors.red100)}
+            />
           ) : (
-            <CheckCircle size={24} color={String(colors.green100)} />
+            <CheckCircle
+              data-testid="check-circle"
+              size={24}
+              color={String(colors.green100)}
+            />
           )}
         </InputContent>
       </Label>
 
-      {error && <Error>{error}</Error>}
+      {error && <Error data-testid="error">{error}</Error>}
     </div>
   )
 }

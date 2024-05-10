@@ -19,7 +19,7 @@ export const globalStyles = globalCss({
     fontSize: theme.fontSizes.md,
   },
 
-  'h1, h2, h3, h4, h5, h6, button': {
+  'h1, h2, h3, h4, h5, h6, button, a': {
     '-webkit-font-smoothing': 'antialiased',
 
     fontFamily: theme.fonts.heading,

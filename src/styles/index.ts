@@ -51,9 +51,17 @@ export const {
     },
 
     fontSizes: {
+      xs: '0.75rem',
       sm: '0.875rem',
       md: '1rem',
       lg: '1.25rem',
+      xl: '1.5rem',
+      '2xl': '2rem',
+      '3xl': '2.5rem',
+      '4xl': '3rem',
+      '5xl': '4rem',
+      '6xl': '5rem',
+      '7xl': '6rem',
     },
 
     fontWeights: {
@@ -65,5 +73,39 @@ export const {
       extrabold: 800,
       black: 900,
     },
+
+    space: {
+      1: '0.25rem',
+      2: '0.5rem',
+      3: '0.75rem',
+      4: '1rem',
+      5: '1.25rem',
+      6: '1.5rem',
+      7: '1.75rem',
+      8: '2rem',
+      10: '2.5rem',
+      12: '3rem',
+      14: '3.5rem',
+      16: '4rem',
+      20: '5rem',
+      24: '6rem',
+      32: '8rem',
+      40: '10rem',
+    },
+
+    radii: {
+      px: '1px',
+      sm: '2px',
+      md: '4px',
+      lg: '6px',
+      xl: '8px',
+      full: '9999px',
+    },
+  },
+
+  media: {
+    bp1: '(min-width: 640px)',
+    bp2: '(min-width: 768px)',
+    bp3: '(min-width: 1024px)',
   },
 })

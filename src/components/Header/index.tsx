@@ -8,7 +8,7 @@ export function Header({ simple = false }: HeaderProps) {
   return (
     <Container>
       <Title data-testid="title" simple={simple}>
-        Sekven
+        Sekvens
       </Title>
 
       {!simple && (

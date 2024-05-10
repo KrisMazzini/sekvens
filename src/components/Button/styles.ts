@@ -15,6 +15,7 @@ export const Container = styled('button', {
   alignItems: 'center',
 
   fontFamily: '$heading',
+  fontSize: '$md',
   cursor: 'pointer',
 
   '&:hover:not(:disabled)': {

@@ -1,5 +1,9 @@
 import { styled } from '@/styles'
 
+export const Container = styled('div', {
+  flex: 1,
+})
+
 export const Label = styled('label', {
   display: 'flex',
   flexDirection: 'column',
@@ -28,6 +32,8 @@ export const StyledInput = styled('input', {
   fontSize: '$md',
   color: '$gray100',
   backgroundColor: '$gray900',
+
+  cursor: 'text',
 
   '&::placeholder': {
     color: '$gray400',

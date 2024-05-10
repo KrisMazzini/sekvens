@@ -5,12 +5,24 @@ import { Container } from './styles'
 import { Button } from '../Button'
 import { Input } from '../Input'
 
-type NewPlayerProps = {
-  index: number
-  amountOfPlayers: number
+export type Player = {
+  name: string
+  id: string
 }
 
-export function NewPlayer({ index, amountOfPlayers }: NewPlayerProps) {
+type NewPlayerProps = {
+  index: number
+  player: Player
+  amountOfPlayers: number
+  onRemovePlayer: (id: string) => void
+}
+
+export function NewPlayer({
+  index,
+  player,
+  amountOfPlayers,
+  onRemovePlayer,
+}: NewPlayerProps) {
   return (
     <Container>
       <Input
@@ -18,7 +30,13 @@ export function NewPlayer({ index, amountOfPlayers }: NewPlayerProps) {
         placeholder="Digite o nome do jogador"
       />
 
-      {amountOfPlayers > 1 && <Button icon={Trash} type="danger" />}
+      {amountOfPlayers > 1 && (
+        <Button
+          icon={Trash}
+          type="danger"
+          onClick={() => onRemovePlayer(player.id)}
+        />
+      )}
     </Container>
   )
 }

@@ -3,7 +3,7 @@ import { CheckCircle, XCircle } from 'phosphor-react'
 
 import { theme } from '@/styles'
 
-import { Error, InputContent, Label, StyledInput } from './styles'
+import { Container, Error, InputContent, Label, StyledInput } from './styles'
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string
@@ -14,7 +14,7 @@ export function Input({ label, error, ...props }: InputProps) {
   const { colors } = theme
 
   return (
-    <div>
+    <Container>
       <Label>
         {label}
 
@@ -38,6 +38,6 @@ export function Input({ label, error, ...props }: InputProps) {
       </Label>
 
       {error && <Error data-testid="error">{error}</Error>}
-    </div>
+    </Container>
   )
 }

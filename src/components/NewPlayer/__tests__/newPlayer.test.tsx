@@ -1,8 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { NewPlayer, Player } from '@/components/NewPlayer'
+
+import { NewPlayer } from '@/components/NewPlayer'
+import { Player } from '@/hooks/usePlayers'
 
 const player: Player = {
-  name: 'John Doe',
+  name: 'JOHNDOE',
   id: '1',
 }
 
@@ -15,6 +17,7 @@ describe('Component: NewPlayer', () => {
         player={player}
         index={index}
         amountOfPlayers={3}
+        onChange={() => <></>}
         onRemovePlayer={() => <></>}
       />,
     )
@@ -29,6 +32,7 @@ describe('Component: NewPlayer', () => {
         player={player}
         index={0}
         amountOfPlayers={2}
+        onChange={() => <></>}
         onRemovePlayer={() => <></>}
       />,
     )
@@ -43,6 +47,7 @@ describe('Component: NewPlayer', () => {
         player={player}
         index={0}
         amountOfPlayers={1}
+        onChange={() => <></>}
         onRemovePlayer={() => <></>}
       />,
     )
@@ -59,6 +64,7 @@ describe('Component: NewPlayer', () => {
         player={player}
         index={0}
         amountOfPlayers={2}
+        onChange={() => <></>}
         onRemovePlayer={handleRemovePlayer}
       />,
     )
@@ -68,5 +74,25 @@ describe('Component: NewPlayer', () => {
 
     expect(handleRemovePlayer).toHaveBeenCalledTimes(1)
     expect(handleRemovePlayer).toHaveBeenCalledWith(player.id)
+  })
+
+  it("should call the 'onChange' function with the correct player when the input value changes", () => {
+    const onChange = jest.fn()
+
+    render(
+      <NewPlayer
+        player={player}
+        index={0}
+        amountOfPlayers={2}
+        onChange={onChange}
+        onRemovePlayer={() => <></>}
+      />,
+    )
+
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value: 'Jane Doe' } })
+
+    expect(onChange).toHaveBeenCalledTimes(1)
+    expect(onChange).toHaveBeenCalledWith(player.id, 'Jane Doe')
   })
 })

@@ -18,6 +18,8 @@ export function Input({ label, error, ...props }: InputProps) {
       <Label>
         {label}
 
+        {error && <Error data-testid="error">{error}</Error>}
+
         <InputContent>
           <StyledInput {...props} />
 
@@ -36,8 +38,6 @@ export function Input({ label, error, ...props }: InputProps) {
           )}
         </InputContent>
       </Label>
-
-      {error && <Error data-testid="error">{error}</Error>}
     </Container>
   )
 }

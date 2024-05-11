@@ -44,6 +44,7 @@ export const Error = styled('span', {
   display: 'block',
   marginTop: '$1',
 
+  fontFamily: '$body',
   fontSize: '$md',
   color: '$red100',
 })

@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
-import { v4 as uuid } from 'uuid'
+
 import { Play, Plus, Question, Trophy } from 'phosphor-react'
 
 import { theme } from '@/styles'
@@ -10,33 +9,22 @@ import { Link } from '@/components/Link'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { Button } from '@/components/Button'
-import { NewPlayer, Player } from '@/components/NewPlayer'
+import { NewPlayer } from '@/components/NewPlayer'
+import { usePlayers } from '@/hooks/usePlayers'
 
 const MAX_PLAYERS = 4
 
 export default function Home() {
-  const [players, setPlayers] = useState<Player[]>([
-    {
-      name: '',
-      id: uuid(),
-    },
-  ])
+  const {
+    players,
+    errors,
+    findErrorByPlayerId,
+    handleAddPlayer,
+    handleChangePlayerName,
+    handleRemovePlayer,
+  } = usePlayers()
 
   const { colors } = theme
-
-  function handleAddPlayer() {
-    setPlayers((prevState) => [
-      ...prevState,
-      {
-        name: '',
-        id: uuid(),
-      },
-    ])
-  }
-
-  function handleRemovePlayer(id: string) {
-    setPlayers((prevState) => prevState.filter((player) => player.id !== id))
-  }
 
   return (
     <>
@@ -57,7 +45,9 @@ export default function Home() {
                 key={player.id}
                 index={index}
                 player={player}
+                error={findErrorByPlayerId(player.id)}
                 amountOfPlayers={players.length}
+                onChange={handleChangePlayerName}
                 onRemovePlayer={handleRemovePlayer}
               />
             ))}
@@ -71,7 +61,12 @@ export default function Home() {
             disabled={players.length >= MAX_PLAYERS}
           />
 
-          <Button icon={Play} type="success" label="Começar Jogo" />
+          <Button
+            icon={Play}
+            type="success"
+            label="Começar Jogo"
+            disabled={!players.length || errors.length > 0}
+          />
         </Content>
 
         <Nav>

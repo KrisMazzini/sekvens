@@ -64,36 +64,36 @@ export function usePlayers() {
   useEffect(() => {
     function checkErrors(currentErrors: Error[], player: Player) {
       const { name, id } = player
-      const currentPlayerErrors: string[] = []
-
-      if (!name) {
-        currentPlayerErrors.push('O nome do jogador é obrigatório')
-      }
-
-      if (name.length < 3) {
-        currentPlayerErrors.push(
-          'O nome do jogador deve ter no mínimo 3 caracteres',
-        )
-      }
-
-      if (name.length > 10) {
-        currentPlayerErrors.push(
-          'O nome do jogador deve ter no máximo 10 caracteres',
-        )
-      }
 
       const duplicatedName = players.some(
         (otherPlayer) => otherPlayer.name === name && otherPlayer.id !== id,
       )
 
-      if (duplicatedName) {
-        currentPlayerErrors.push('O nome do jogador deve ser único')
-      }
+      const possibleErrors = [
+        {
+          message: 'O nome do jogador é obrigatório',
+          condition: !name,
+        },
+        {
+          message: 'O nome do jogador deve ter no mínimo 3 caracteres',
+          condition: name.length < 3,
+        },
+        {
+          message: 'O nome do jogador deve ter no máximo 10 caracteres',
+          condition: name.length > 10,
+        },
+        {
+          message: 'O nome do jogador deve ser único',
+          condition: duplicatedName,
+        },
+      ]
 
-      if (currentPlayerErrors.length > 0) {
+      const nextError = possibleErrors.find((error) => error.condition)
+
+      if (nextError) {
         currentErrors.push({
           nameId: id,
-          message: currentPlayerErrors[0],
+          message: nextError.message,
         })
       }
 

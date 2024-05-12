@@ -6,6 +6,7 @@ import { Player } from '@/hooks/usePlayers'
 const player: Player = {
   name: 'JOHNDOE',
   id: '1',
+  score: 0,
 }
 
 describe('Component: NewPlayer', () => {

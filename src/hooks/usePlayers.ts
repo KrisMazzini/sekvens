@@ -4,8 +4,9 @@ import { v4 as uuid } from 'uuid'
 import { formatName } from '@/utils/formatName'
 
 export type Player = {
-  name: string
   id: string
+  name: string
+  score: number
 }
 
 export type Error = {
@@ -19,6 +20,7 @@ export function usePlayers() {
     {
       name: '',
       id: uuid(),
+      score: 0,
     },
   ])
 
@@ -28,6 +30,7 @@ export function usePlayers() {
       {
         name: '',
         id: uuid(),
+        score: 0,
       },
     ])
   }

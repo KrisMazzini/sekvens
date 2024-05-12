@@ -6,7 +6,7 @@ export const Container = styled('main', {
   minHeight: '100vh',
 })
 
-export const Content = styled('section', {
+export const PlayersForm = styled('section', {
   maxWidth: '360px',
   margin: '$8 auto',
   padding: '0 $4',
@@ -22,7 +22,7 @@ export const Content = styled('section', {
   },
 })
 
-export const Players = styled('div', {
+export const NewPlayers = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'stretch',
@@ -46,4 +46,19 @@ export const Nav = styled('nav', {
     alignItems: 'center',
     gap: '$2',
   },
+})
+
+export const GameContent = styled('section', {
+  width: '100%',
+  maxWidth: '1280px',
+  margin: '$8 auto',
+  padding: '0 $4',
+})
+
+export const GamePlayers = styled('ul', {
+  display: 'grid',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gridTemplateColumns: 'repeat(auto-fit, 250px)',
+  gap: '$6',
 })

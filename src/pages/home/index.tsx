@@ -1,20 +1,32 @@
 import Head from 'next/head'
+import { useState } from 'react'
 
 import { Play, Plus, Question, Trophy } from 'phosphor-react'
 
 import { theme } from '@/styles'
-import { Container, Content, Nav, Players } from './styles'
+import {
+  Container,
+  PlayersForm,
+  GamePlayers,
+  Nav,
+  NewPlayers,
+  GameContent,
+} from './styles'
 
 import { Link } from '@/components/Link'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { Button } from '@/components/Button'
 import { NewPlayer } from '@/components/NewPlayer'
+import { PlayerCard } from '@/components/PlayerCard'
+
 import { usePlayers } from '@/hooks/usePlayers'
 
 const MAX_PLAYERS = 4
+const PLAYER_COLORS = ['blue', 'green', 'red', 'yellow'] as const
 
 export default function Home() {
+  const [gameStarted, setGameStarted] = useState(false)
   const {
     players,
     errors,
@@ -25,6 +37,42 @@ export default function Home() {
   } = usePlayers()
 
   const { colors } = theme
+
+  function handleStartGame() {
+    setGameStarted(true)
+  }
+
+  if (gameStarted) {
+    return (
+      <>
+        <Head>
+          <title>Sekvens</title>
+          <meta
+            name="description"
+            content="Jogo de memorização de sequência."
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
+        <Container>
+          <Header simple />
+
+          <GameContent>
+            <GamePlayers>
+              {players.map((player, index) => (
+                <PlayerCard
+                  key={player.id}
+                  player={player}
+                  color={PLAYER_COLORS[index]}
+                />
+              ))}
+            </GamePlayers>
+          </GameContent>
+        </Container>
+      </>
+    )
+  }
 
   return (
     <>
@@ -38,8 +86,8 @@ export default function Home() {
       <Container>
         <Header />
 
-        <Content>
-          <Players>
+        <PlayersForm>
+          <NewPlayers>
             {players.map((player, index) => (
               <NewPlayer
                 key={player.id}
@@ -51,7 +99,7 @@ export default function Home() {
                 onRemovePlayer={handleRemovePlayer}
               />
             ))}
-          </Players>
+          </NewPlayers>
 
           <Button
             icon={Plus}
@@ -65,9 +113,10 @@ export default function Home() {
             icon={Play}
             type="success"
             label="Começar Jogo"
+            onClick={handleStartGame}
             disabled={!players.length || errors.length > 0}
           />
-        </Content>
+        </PlayersForm>
 
         <Nav>
           <ul>

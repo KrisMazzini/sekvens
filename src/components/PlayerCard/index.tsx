@@ -7,13 +7,11 @@ import { Player } from '@/hooks/usePlayers'
 
 type PlayerCardProps = ComponentProps<typeof Container> & {
   player: Player
-  score?: number
   playing?: boolean
 }
 
 export function PlayerCard({
   player,
-  score = 0,
   playing = false,
   ...props
 }: PlayerCardProps) {
@@ -36,7 +34,8 @@ export function PlayerCard({
         <Star size={24} weight="fill" />
 
         <span>
-          Pontuação: <ScoreValue data-testid="score-value">{score}</ScoreValue>
+          Pontuação:{' '}
+          <ScoreValue data-testid="score-value">{player.score}</ScoreValue>
         </span>
       </Score>
     </Container>

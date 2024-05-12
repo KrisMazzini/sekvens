@@ -27,6 +27,7 @@ export function NewPlayer({
   return (
     <Container>
       <Input
+        autoFocus
         label={`Jogador ${index + 1}`}
         placeholder="Digite o nome do jogador"
         minLength={3}

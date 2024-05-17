@@ -75,6 +75,6 @@ export const characters = {
       image: charmander,
     },
   },
-}
+} as const
 
 export type CharacterTheme = keyof typeof characters

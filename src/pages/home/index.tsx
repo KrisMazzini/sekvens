@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { Play, Plus, Question, Trophy } from 'phosphor-react'
 import { useState } from 'react'
 
+import { Board } from '@/components/Board'
 import { Button } from '@/components/Button'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -60,12 +61,15 @@ export default function Home() {
             <GamePlayers>
               {players.map((player, index) => (
                 <PlayerCard
+                  playing={index === 0}
                   key={player.id}
                   player={player}
                   color={PLAYER_COLORS[index]}
                 />
               ))}
             </GamePlayers>
+
+            <Board />
           </GameContent>
         </Container>
       </>

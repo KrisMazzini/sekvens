@@ -1,7 +1,8 @@
 import { Pause, Play } from 'phosphor-react'
 
-import { Button, Container, Timer } from './styles'
 import { useGame } from '@/hooks/useGame'
+
+import { Button, Container, Timer } from './styles'
 
 export function PlayPause() {
   const {

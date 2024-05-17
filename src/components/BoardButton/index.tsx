@@ -1,9 +1,9 @@
-import { ComponentProps } from 'react'
 import Image from 'next/image'
-
-import { Container } from './styles'
+import { ComponentProps } from 'react'
 
 import { Character } from '@/utils/characters'
+
+import { Container } from './styles'
 
 type BoardButtonProps = ComponentProps<typeof Container> & {
   currentStep?: boolean

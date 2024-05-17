@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { styled } from '@stitches/react'
+import Link from 'next/link'
 
 export const NextLink = styled(Link, {
   color: '$white',

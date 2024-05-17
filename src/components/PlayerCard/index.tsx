@@ -1,9 +1,9 @@
-import { ComponentProps } from 'react'
 import { GameController, Star } from 'phosphor-react'
-
-import { Container, Header, Name, Score, ScoreValue } from './styles'
+import { ComponentProps } from 'react'
 
 import { Player } from '@/hooks/usePlayers'
+
+import { Container, Header, Name, Score, ScoreValue } from './styles'
 
 type PlayerCardProps = ComponentProps<typeof Container> & {
   player: Player

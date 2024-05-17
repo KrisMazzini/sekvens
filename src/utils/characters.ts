@@ -1,19 +1,17 @@
 import { StaticImageData } from 'next/image'
 
 import goku from '@/assets/characters/dragonBall/goku.png'
+import goten from '@/assets/characters/dragonBall/goten.png'
 import piccolo from '@/assets/characters/dragonBall/piccolo.png'
 import vegeta from '@/assets/characters/dragonBall/vegeta.png'
-import goten from '@/assets/characters/dragonBall/goten.png'
-
-import naruto from '@/assets/characters/naruto/naruto.png'
 import kakashi from '@/assets/characters/naruto/kakashi.png'
+import naruto from '@/assets/characters/naruto/naruto.png'
 import sakura from '@/assets/characters/naruto/sakura.png'
 import sasuke from '@/assets/characters/naruto/sasuke.png'
-
-import pikachu from '@/assets/characters/pokemon/pikachu.png'
 import bulbasaur from '@/assets/characters/pokemon/bulbasaur.png'
-import squirtle from '@/assets/characters/pokemon/squirtle.png'
 import charmander from '@/assets/characters/pokemon/charmander.png'
+import pikachu from '@/assets/characters/pokemon/pikachu.png'
+import squirtle from '@/assets/characters/pokemon/squirtle.png'
 
 export type Character = {
   name: string

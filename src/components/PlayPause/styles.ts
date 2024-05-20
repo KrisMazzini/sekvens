@@ -52,7 +52,7 @@ export const Timer = styled('div', {
   },
 })
 
-export const Button = styled('button', {
+export const PlayPauseButton = styled('button', {
   all: 'unset',
   height: '100%',
 
@@ -82,4 +82,15 @@ export const Button = styled('button', {
     filter: 'brightness(0.5)',
     cursor: 'not-allowed',
   },
+})
+
+export const Actions = styled('div', {
+  width: '100%',
+  height: '100%',
+
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-end',
+  alignItems: 'stretch',
+  gap: '$4',
 })

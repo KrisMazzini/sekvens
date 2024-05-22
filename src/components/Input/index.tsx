@@ -1,5 +1,5 @@
-import React from 'react'
 import { CheckCircle, XCircle } from 'phosphor-react'
+import React from 'react'
 
 import { theme } from '@/styles'
 

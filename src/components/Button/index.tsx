@@ -1,6 +1,7 @@
 import { IconProps } from 'phosphor-react'
-import { Container } from './styles'
 import { ComponentProps } from 'react'
+
+import { Container } from './styles'
 
 type ButtonProps = ComponentProps<typeof Container> & {
   label?: string

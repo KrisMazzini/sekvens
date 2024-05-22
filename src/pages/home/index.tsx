@@ -1,26 +1,25 @@
 import Head from 'next/head'
+import { Play, Plus, Question, Trophy } from 'phosphor-react'
 import { useState } from 'react'
 
-import { Play, Plus, Question, Trophy } from 'phosphor-react'
-
+import { Board } from '@/components/Board'
+import { Button } from '@/components/Button'
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
+import { Link } from '@/components/Link'
+import { NewPlayer } from '@/components/NewPlayer'
+import { PlayerCard } from '@/components/PlayerCard'
+import { usePlayers } from '@/hooks/usePlayers'
 import { theme } from '@/styles'
+
 import {
   Container,
-  PlayersForm,
+  GameContent,
   GamePlayers,
   Nav,
   NewPlayers,
-  GameContent,
+  PlayersForm,
 } from './styles'
-
-import { Link } from '@/components/Link'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { Button } from '@/components/Button'
-import { NewPlayer } from '@/components/NewPlayer'
-import { PlayerCard } from '@/components/PlayerCard'
-
-import { usePlayers } from '@/hooks/usePlayers'
 
 const MAX_PLAYERS = 4
 const PLAYER_COLORS = ['blue', 'green', 'red', 'yellow'] as const
@@ -62,12 +61,15 @@ export default function Home() {
             <GamePlayers>
               {players.map((player, index) => (
                 <PlayerCard
+                  playing={index === 0}
                   key={player.id}
                   player={player}
                   color={PLAYER_COLORS[index]}
                 />
               ))}
             </GamePlayers>
+
+            <Board />
           </GameContent>
         </Container>
       </>

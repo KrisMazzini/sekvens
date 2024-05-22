@@ -1,11 +1,10 @@
 import { Trash } from 'phosphor-react'
 
-import { Container } from './styles'
-
-import { Button } from '../Button'
-import { Input } from '../Input'
-
+import { Input } from '@/components//Input'
+import { Button } from '@/components/Button'
 import { Player } from '@/hooks/usePlayers'
+
+import { Container } from './styles'
 
 type NewPlayerProps = {
   index: number

@@ -1,4 +1,5 @@
-import { Link } from '../Link'
+import { Link } from '@/components/Link'
+
 import { Container } from './styles'
 
 export function Footer() {

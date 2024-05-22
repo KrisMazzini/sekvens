@@ -53,12 +53,17 @@ export const GameContent = styled('section', {
   maxWidth: '1280px',
   margin: '$8 auto',
   padding: '0 $4',
+
+  display: 'grid',
+  gridTemplateColumns: 'auto 1fr',
+  alignItems: 'center',
+  gap: '$6',
 })
 
 export const GamePlayers = styled('ul', {
-  display: 'grid',
+  display: 'flex',
+  flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  gridTemplateColumns: 'repeat(auto-fit, 250px)',
   gap: '$6',
 })
